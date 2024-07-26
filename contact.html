@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+    <link rel="icon" href="./images/letter-j.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/contact.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+
+    <header class="header">
+        <h1>
+            <span>J</span><span>e</span><span>r</span><span>o</span><span>m</span><span>e</span><span>'</span><span>s</span> 
+        </h1>
+        <p>
+            <span>W</span><span>e</span><span>b</span><span>s</span><span>i</span><span>t</span><span>e</span>
+            <span>P</span><span>o</span><span>r</span><span>t</span><span>f</span><span>o</span><span>l</span><span>i</span><span>o</span><span>!</span>
+        </p>
+    </header>
+    
+    
+    <div class="container d-flex justify-content-center align-items-start vh-100">
+        <div class="box p-3">
+          
+          <nav class="navbar navbar-expand-lg">
+            <div class="container">
+              <a class="navbar-brand fs-6" href="#">© Jerome Tegrado</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link fs-6 transition-link" href="index.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link fs-6 transition-link" href="resume.html">Resume</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link fs-6 transition-link" href="projects.html">Projects</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active fs-6 transition-link" aria-current="page"  href="#">Contact</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+          
+            
+            <!-- Main Content Here -->
+            <h2 class="introduction">Welcome to my Contacts!</h2>
+            <h1 class="display-5">I'm very glad to connect with you</h1>
+            <p class="introdesc">Feel free to reach out to me through the form below or connect with me on the given details.</p>
+
+
+            <div class="container mt-4 text-center">
+                <p class="desc">Contact Details</p>
+                <div class="row justify-content-center">
+                    <div class="col-md-4 mb-3 d-flex align-items-center justify-content-center">
+                        <p class="mb-0"><i class="fa-solid fa-phone-volume"></i> - (+63) 991-791-4424</p>
+                    </div>
+                    <div class="col-md-4 mb-3 d-flex align-items-center justify-content-center">
+                        <p class="mb-0"><i class="fa-solid fa-envelope"></i> - tegradojerome@gmail.com</p>
+                    </div>
+                    <div class="col-md-4 mb-3 d-flex align-items-center justify-content-center">
+                        <p class="mb-0"><i class="fa-solid fa-map-location-dot"></i> - Metro Manila</p>
+                    </div>
+                </div>
+            
+                <p class="desc2">Feel free to message me directly below:</p>
+            </div>
+            
+            
+          
+          
+          <div class="container mt-5">
+            <form id="contactForm">
+                <div class="row justify-content-center">
+                    <div class="col-md-12 col-lg-8">
+                        <div class="form-group row">
+                            <div class="col-md-6">
+                                <label for="email" style="color: rgb(9, 47, 70);">Email address</label>
+                                <input type="email" placeholder="e.g. (Your_Name@gmail.com)" class="form-control" id="email" name="email" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="phone" style="color: rgb(9, 47, 70);">Phone Number</label>
+                                <input type="tel" placeholder="e.g. (+63 Your_Number)" class="form-control" id="phone" name="phone" pattern="[+]?\d[\d\s]*" title="Phone number should contain only numbers, spaces, and an optional '+' sign at the beginning">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" style="margin-top: 1rem; color: rgb(9, 47, 70);" >Message</label>
+                            <textarea class="form-control" placeholder="Send me a direct message." id="message" name="message" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block" style="margin-top: 1rem;"><i class="fa-regular fa-paper-plane"></i> Send Message </button> 
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+        <div id="popup" class="popup">
+            <p id="popupMessage">Sending...</p>
+        </div>
+
+        
+        <script>
+            document.getElementById('contactForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+            
+                const form = document.forms['contactForm'];
+                const email = form['email'].value;
+                const message = form['message'].value;
+            
+                // Basic validation
+                if (!email || !message) {
+                    showPopup('Please fill out all required fields.', 'error');
+                    return;
+                }
+            
+                // Show the popup with "Sending..." message
+                showPopup('Sending...', 'info');
+            
+                const scriptURL = 'https://script.google.com/macros/s/AKfycbxARBrdK0Exq-6q7VRbCLTVhgHE4h87FQuzZmEA-3kh3xD8IdiTjM_h4eZa4J_b_XuE/exec'; // Replace with your script deployment URL
+                
+                fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                    .then(response => {
+                        if (response.ok) {
+                            // Immediately show "Message Sent!" after "Sending..."
+                            setTimeout(() => {
+                                showPopup('Message Sent!', 'success');
+                            }, 800); // Adjust timing if needed
+                        } else {
+                            showPopup('Failed to send message. Please try again.', 'error');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error!', error.message);
+                        showPopup('Error! Please try again.', 'error');
+                    });
+            });
+        
+            function showPopup(message, type) {
+                const popup = document.getElementById('popup');
+                const popupMessage = document.getElementById('popupMessage');
+        
+                popupMessage.textContent = message;
+        
+                // Remove previous type classes
+                popup.classList.remove('success', 'error', 'info');
+        
+                // Add the new type class
+                popup.classList.add(type);
+        
+                // Show the popup
+                popup.classList.add('active');
+        
+                // Define duration for different messages
+                let duration;
+                if (message === 'Message Sent!') {
+                    duration = 3000; // Duration for "Message Sent!" message (3 seconds)
+                } else {
+                    duration = 3000; // Duration for "Sending..." and other messages (3 seconds)
+                }
+        
+                // Hide the popup after the defined duration
+                setTimeout(() => {
+                    popup.classList.remove('active');
+                    popup.classList.remove('success', 'error', 'info');
+                }, duration);
+            }
+        </script>
+        
+        
+        
+          </div>
+      </div>
+  
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  
+      <script src="https://kit.fontawesome.com/e59f621026.js" crossorigin="anonymous"></script>
+  
+  
+      <script src="js/contact.js"></script>
+</body>
+</html>

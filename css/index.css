@@ -1,0 +1,377 @@
+body {
+    background: linear-gradient(to right, #9be5fd, #ffffff);
+    color: #333;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+    font-family: "Poppins", sans-serif;
+}
+
+
+/* styles.css */
+body {
+    position: relative;
+  
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .slide-out {
+    transform: translateX(-100%);
+  }
+  
+  .slide-in {
+    transform: translateX(0);
+  }
+  
+  body.fade-out {
+    transform: translateX(-100%);
+  }
+  
+
+.header {
+    margin-top: 40px;
+    position: relative;
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+
+}
+
+
+.header h1 {
+    font-size: 3rem;
+    margin: 0;
+    color: #4ea6ee;
+}
+
+.header p {
+    font-size: 1.5rem;
+    margin: 10px 0 0;
+    color: #4ea6ee;
+}
+
+.header span {
+    display: inline-block;
+    animation: bounce 3s ease-in-out infinite;
+    color: inherit; /* Ensure color inherits from parent */
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.header span:nth-child(1) {
+    animation-delay: 0s;
+}
+.header span:nth-child(2) {
+    animation-delay: 0.1s;
+}
+.header span:nth-child(3) {
+    animation-delay: 0.2s;
+}
+.header span:nth-child(4) {
+    animation-delay: 0.3s;
+}
+.header span:nth-child(5) {
+    animation-delay: 0.4s;
+}
+.header span:nth-child(6) {
+    animation-delay: 0.5s;
+}
+.header span:nth-child(7) {
+    animation-delay: 0.6s;
+}
+.header span:nth-child(8) {
+    animation-delay: 0.7s;
+}
+.header span:nth-child(9) {
+    animation-delay: 0.8s;
+}
+.header span:nth-child(10) {
+    animation-delay: 0.9s;
+}
+.header span:nth-child(11) {
+    animation-delay: 1s;
+}
+.header span:nth-child(12) {
+    animation-delay: 1.1s;
+}
+.header span:nth-child(13) {
+    animation-delay: 1.2s;
+}
+.header span:nth-child(14) {
+    animation-delay: 1.3s;
+}
+.header span:nth-child(15) {
+    animation-delay: 1.4s;
+}
+.header span:nth-child(16) {
+    animation-delay: 1.5s;
+}
+.header span:nth-child(17) {
+    animation-delay: 1.6s;
+}
+.header span:nth-child(18) {
+    animation-delay: 1.7s;
+}
+
+
+
+
+.introduction {
+    display: inline-block;
+    overflow: hidden; /* Ensures text doesn't overflow during animation */
+    white-space: nowrap; /* Keeps text in a single line */
+    border-right: 0.15em solid rgb(0, 0, 0); /* Creates the cursor effect */
+    font-size: 24px; /* Adjust size as needed */
+    animation: typing 4s steps(12, end) 2s infinite, blink-caret .75s step-end infinite;
+    width: calc(var(--text-width) + 0.15em); /* Increase width to prevent cursor from covering text */
+  }
+  
+  @keyframes typing {
+    0% { width: 0; }
+    30% { width: calc(var(--text-width) + 0.15em); }
+    60% { width: calc(var(--text-width) + 0.15em); }
+    100% { width: 0; }
+  }
+  
+  @keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: rgb(0, 0, 0); }
+  }
+  
+  
+  .navbar-brand {
+    margin-left: -10px;
+    margin-bottom: 20px;
+  }
+
+
+ 
+
+  .box {
+    margin-top: 10px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-height: calc(86vh - 60px); /* Adjust the height as needed */
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 2000px;
+    padding: 100px; /* Padding to ensure spacing */
+    position: relative; /* Relative positioning for child positioning */
+    border-radius: 10px;
+}
+
+
+  
+/* Apply scrollbar styles to the .box element */
+.box::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+}
+
+.box::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Track color */
+}
+
+.box::-webkit-scrollbar-thumb {
+    background-color: #46a5ff; /* Thumb color */
+    border-radius: 10px; /* Rounded corners for the thumb */
+}
+
+.box {
+    background: linear-gradient(to right, #ffffff, #9be5fd);
+}
+
+.box h2, .box h1 {
+    color: #32aafa;
+}
+
+
+
+.box .viewresume {
+    background-color: #32aafa; /* Existing color */
+    border: none;
+    margin-top: 10px;
+    padding: 15px;
+}
+
+.box .viewresume {
+    background-color: #32aafa; /* Existing color */
+    border: none;
+    color: #fff; /* Text color */
+    transition: all 0.3s ease; /* Smooth transition for color and scaling */
+}
+
+.box .viewresume:hover {
+    background-color: #fff; /* Background color when hovered */
+    border: 2px solid #32aafa; /* Border color when hovered */
+    color: #32aafa; /* Text color when hovered */
+    transform: scale(1.1) translateX(5px); /* Scale up and move right by 5px */
+}
+
+.box .contactme {
+    margin-left: 20px;
+    background-color: #eff7fc; /* Existing color */
+    border: none;
+    margin-top: 10px;
+    padding: 15px;
+}
+
+.box .contactme {
+    background-color: #fff; /* Background color when hovered */
+    border: 2px solid #6dbe85; /* Border color when hovered */
+    color: #6dbe85; /* Text color when hovered */
+    transition: all 0.3s ease; /* Smooth transition for color and scaling */
+}
+
+.box .contactme:hover {
+    background-color: #6dbe85; /* Background color when hovered */
+    color: #fff; /* Text color when hovered */
+    transform: scale(1.1) translateX(5px); /* Scale up and move right by 5px */
+}
+
+.desc {
+    font-size: 16px;
+    text-align: justify;
+    color: #4ea6ee;
+    width: 800px;
+    word-spacing: 10px;
+}
+
+
+.mypic {
+    width: 50vw; /* Responsive width relative to viewport width */
+    height: 50vw; /* Maintain a circular shape */
+    max-width: 365px; /* Maximum width */
+    max-height: 365px; /* Maximum height */
+    border: 3px solid #f5f5f5;
+    padding: 5px;
+    border-radius: 50%; /* Circular shape */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: auto; /* Center the image horizontally */
+    display: block; /* Ensure block-level display for margin auto */
+}
+
+.mypic:hover {
+    transform: scale(1.1); /* Zoom-in effect on hover */
+    box-shadow: 0 12px 24px rgba(0,0,0,0.4); /* Deeper shadow on hover */
+}
+
+/* Media Queries for Additional Screen Sizes */
+
+/* For very small screens */
+@media (max-width: 600px) {
+    .mypic {
+        width: 70vw; /* Adjust to fit smaller screens */
+        height: 70vw; /* Maintain circular shape */
+    }
+}
+
+/* For extra small screens */
+@media (max-width: 400px) {
+    .mypic {
+        width: 70vw; /* Adjust to fit very small screens */
+        height: 70vw; /* Maintain circular shape */
+    }
+}
+
+/* For very large screens */
+@media (min-width: 1200px) {
+    .mypic {
+        width: 40vw; /* Adjust to fit larger screens */
+        height: 40vw; /* Maintain circular shape */
+    }
+}
+
+
+
+.first_con {
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.third_con {
+    margin-bottom: 50px;
+}
+
+.introicons {
+    margin-top: 60px;
+    font-size: 1.75rem;
+    color: #4ea6ee;
+    font-weight: 300;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.introdesc {
+    margin-bottom: 70px;
+    color: #4883b8;
+}
+
+.introicons2 {
+    margin-top: 60px;
+    font-size: 1.75rem;
+    color: #4ea6ee;
+    font-weight: 300;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.introdesc2 {
+    margin-bottom: 70px;
+    color: #4883b8;
+}
+
+.icons {
+    color: #ebf1f7;
+    position: relative;
+    animation: neonGlow 1.5s infinite alternate;
+    transition: text-shadow 0.3s ease, transform 0.4s ease; /* Smooth transition for hover effects */
+}
+
+@keyframes neonGlow {
+    0% {
+        text-shadow: 0 0 5px #2884cf, 0 0 10px #2884cf, 0 0 15px #2884cf, 0 0 20px #4ea6ee, 0 0 30px #4ea6ee, 0 0 40px #4ea6ee, 0 0 50px #4ea6ee;
+    }
+    100% {
+        text-shadow: 0 0 10px #2884cf, 0 0 20px #2884cf, 0 0 30px #2884cf, 0 0 40px #4ea6ee, 0 0 60px #4ea6ee, 0 0 80px #4ea6ee, 0 0 100px #4ea6ee;
+    }
+}
+
+.icons:hover {
+    text-shadow: 0 0 15px #4ea6ee, 0 0 25px #4ea6ee, 0 0 35px #4ea6ee, 0 0 50px #4ea6ee, 0 0 70px #4ea6ee, 0 0 90px #4ea6ee, 0 0 120px #4ea6ee;
+    transform: scale(1.05); /* Slightly zooms in the icon */
+}
+
+
+
+.descicons {
+    font-weight: 500;
+    margin-top: 20px;
+    color: #4ea6ee;
+    animation: bounce 3s infinite; /* Add this line */
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-6px);
+    }
+    60% {
+        transform: translateY(1px);
+    }
+}
+
