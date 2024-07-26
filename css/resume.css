@@ -274,10 +274,10 @@ body {
 }
 
 
-.education-item last,
-.experience-item last,
-.skill-item last,
-.about-item last {
+.education-itemlast,
+.experience-itemlast,
+.skill-itemlast,
+.about-itemlast {
     font-size: 15px;
     display: flex; /* Enable flexbox layout */
     flex-direction: column; /* Align items vertically in a column */
