@@ -273,7 +273,7 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; /* Smooth transition for background, color, and scaling */
     text-align: center; /* Center text inside the button */
     cursor: pointer; /* Change cursor to pointer */
-    margin-bottom: 40px;
+    margin-bottom: 50px;
     transform-origin: left; /* Set the origin to the left edge */
 }
 
