@@ -274,26 +274,6 @@ body {
 }
 
 
-.education-itemlast,
-.experience-itemlast,
-.skill-itemlast,
-.about-itemlast {
-    font-size: 15px;
-    display: flex; /* Enable flexbox layout */
-    flex-direction: column; /* Align items vertically in a column */
-    align-items: center; /* Center items horizontally within the container */
-    text-align: justify; /* Justify text alignment */
-    padding: 15px;
-    border: 2px solid #55ccfc; /* Medium green border */
-    border-radius: 5px;
-    color: #55ccfc; /* Medium green text color */
-    transition: transform 0.3s ease-in-out, border-color 0.3s ease-in-out, color 0.3s ease-in-out; /* Smooth hover effect */
-    margin-bottom: 50px; /* Add space below each item */
-    position: relative; /* Relative positioning for pseudo-element */
-    overflow: hidden; /* Hide overflow for animation */
-}
-
-
 
 .education-item::after,
 .experience-item::after,
