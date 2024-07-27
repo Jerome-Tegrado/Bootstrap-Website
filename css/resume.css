@@ -30,14 +30,15 @@ body {
   }
   
 
-.header {
-    margin-top: 40px;
+  .header {
+    margin-top: 15px;
     position: relative;
     text-align: center;
     padding: 20px;
     border-radius: 8px;
-    
+
 }
+
 
 
 .header h1 {
@@ -160,10 +161,10 @@ body {
  
 
   .box {
-    margin-top: 10px;
+    margin-top: -5px;
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-height: calc(86vh - 60px); /* Adjust the height as needed */
+    max-height: calc(70vh + 15px); /* Adjust the height as needed */
     overflow-y: auto;
     overflow-x: hidden;
     width: 100%;
@@ -172,6 +173,7 @@ body {
     position: relative; /* Relative positioning for child positioning */
     border-radius: 10px;
 }
+
 
 
 
@@ -220,12 +222,52 @@ body {
     color: #000000;
     font-weight: bold; /* Differentiate active link */
   }
+
+
   .content-section {
+    margin-top: 35px;
     display: none;
   }
   .content-section.active {
     display: block;
+    margin-top: 35px;
   }
+
+  @media (min-width: 1024px) {
+    .content-section {
+      margin-top: -5px;
+      display: none;
+    }
+    .content-section.active {
+      display: block;
+      margin-top: -5px;
+    }
+
+    .header {
+        margin-top: 15px;
+        position: relative;
+        text-align: center;
+        padding: 20px;
+        border-radius: 8px;
+        
+    }
+    
+    
+         .box {
+        margin-top: -5px;
+        background-color: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-height: calc(85vh - 60px); /* Adjust the height as needed */
+        overflow-y: auto;
+        overflow-x: hidden;
+        width: 100%;
+        max-width: 2000px;
+        padding: 100px; /* Padding to ensure spacing */
+        position: relative; /* Relative positioning for child positioning */
+        border-radius: 10px;
+    }
+  }
+  
 
 
   .download-resume {
@@ -272,7 +314,6 @@ body {
     position: relative; /* Relative positioning for pseudo-element */
     overflow: hidden; /* Hide overflow for animation */
 }
-
 
 
 .education-item::after,
