@@ -68,7 +68,7 @@
                         <p class="mb-0"><i class="fa-solid fa-phone-volume"></i> - (+63) 991-791-4424</p>
                     </div>
                     <div class="col-md-4 mb-3 d-flex align-items-center justify-content-center">
-                        <p class="mb-0"><i class="fa-solid fa-envelope"></i> - tegradojerome@gmail</p>
+                        <p class="mb-0"><i class="fa-solid fa-envelope"></i> - tegradojerome@gmail.com</p>
                     </div>
                     <div class="col-md-4 mb-3 d-flex align-items-center justify-content-center">
                         <p class="mb-0"><i class="fa-solid fa-map-location-dot"></i> - Metro Manila</p>
@@ -88,11 +88,11 @@
                         <div class="form-group row">
                             <div class="col-md-6">
                                 <label for="email" style="color: rgb(9, 47, 70);">Email address</label>
-                                <input type="email" placeholder="(Your_Name@gmail.com)" class="form-control" id="email" name="email" required>
+                                <input type="email" placeholder="e.g. (Your_Name@gmail.com)" class="form-control" id="email" name="email" required>
                             </div>
                             <div class="col-md-6">
                                 <label for="phone" style="color: rgb(9, 47, 70);">Phone Number</label>
-                                <input type="tel" placeholder="(+63 Your_Number)" class="form-control" id="phone" name="phone" pattern="[+]?\d[\d\s]*" title="Phone number should contain only numbers, spaces, and an optional '+' sign at the beginning">
+                                <input type="tel" placeholder="e.g. (+63 Your_Number)" class="form-control" id="phone" name="phone" pattern="[+]?\d[\d\s]*" title="Phone number should contain only numbers, spaces, and an optional '+' sign at the beginning">
                             </div>
                         </div>
                         <div class="form-group">
@@ -135,6 +135,8 @@
                             // Immediately show "Message Sent!" after "Sending..."
                             setTimeout(() => {
                                 showPopup('Message Sent!', 'success');
+                                // Clear the form inputs
+                                form.reset();
                             }, 800); // Adjust timing if needed
                         } else {
                             showPopup('Failed to send message. Please try again.', 'error');
@@ -164,7 +166,7 @@
                 // Define duration for different messages
                 let duration;
                 if (message === 'Message Sent!') {
-                    duration = 3000; // Duration for "Message Sent!" message (3 seconds)
+                    duration = 5000; // Extended duration for "Message Sent!" message (5 seconds)
                 } else {
                     duration = 3000; // Duration for "Sending..." and other messages (3 seconds)
                 }
