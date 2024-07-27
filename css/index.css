@@ -256,8 +256,8 @@ body {
 .mypic {
     width: 50vw; /* Responsive width relative to viewport width */
     height: 50vw; /* Maintain a circular shape */
-    max-width: 365px; /* Maximum width */
-    max-height: 365px; /* Maximum height */
+    max-width: 320px; /* Maximum width */
+    max-height: 320px; /* Maximum height */
     border: 3px solid #f5f5f5;
     padding: 5px;
     border-radius: 50%; /* Circular shape */
