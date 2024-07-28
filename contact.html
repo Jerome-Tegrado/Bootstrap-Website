@@ -112,96 +112,87 @@
         
         <script>
             document.getElementById('contactForm').addEventListener('submit', function(event) {
-                event.preventDefault();
-            
-                const form = document.forms['contactForm'];
-                const email = form['email'].value;
-                const phone = form['phone'].value;
-                const message = form['message'].value;
-            
+              event.preventDefault();
+        
+              const form = document.forms['contactForm'];
+              const email = form['email'].value;
+              const message = form['message'].value;
+              const ipAddressField = document.getElementById('ipAddress');
+        
+              // Fetch the client's IP address using an external service
+              fetch('https://api.ipify.org?format=json')
+                .then(response => response.json())
+                .then(data => {
+                  ipAddressField.value = data.ip;
+                  submitForm();
+                })
+                .catch(error => {
+                  console.error('Error fetching IP address:', error);
+                  showPopup('Error fetching IP address. Please try again.', 'error');
+                });
+        
+              function submitForm() {
                 // Basic validation
-                if (!email || !phone || !message) {
-                    showPopup('Please fill out all required fields.', 'error');
-                    return;
+                if (!email || !message) {
+                  showPopup('Please fill out all required fields.', 'error');
+                  return;
                 }
-            
+        
                 // Show the popup with "Sending..." message
                 showPopup('Sending...', 'info');
-            
+        
                 const scriptURL = 'https://script.google.com/macros/s/AKfycbxARBrdK0Exq-6q7VRbCLTVhgHE4h87FQuzZmEA-3kh3xD8IdiTjM_h4eZa4J_b_XuE/exec'; // Replace with your script deployment URL
-            
-                // Get the user's IP address (using a third-party service)
-                fetch('https://api.ipify.org?format=json')
-                    .then(response => response.json())
-                    .then(data => {
-                        const ipAddress = data.ip;
-            
-                        // Create a form data object
-                        const formData = new FormData();
-                        formData.append('email', email);
-                        formData.append('phone', phone);
-                        formData.append('message', message);
-                        formData.append('ipAddress', ipAddress);
-            
-                        // Send form data to the Google Apps Script web app
-                        fetch(scriptURL, {
-                            method: 'POST',
-                            body: formData
-                        })
-                        .then(response => {
-                            if (response.ok) {
-                                // Immediately show "Message Sent!" after "Sending..."
-                                setTimeout(() => {
-                                    showPopup('Message Sent!', 'success');
-                                    // Clear the form inputs
-                                    form.reset();
-                                }, 800); // Adjust timing if needed
-                            } else {
-                                showPopup('Failed to send message. Please try again.', 'error');
-                            }
-                        })
-                        .catch(error => {
-                            console.error('Error!', error.message);
-                            showPopup('Error! Please try again.', 'error');
-                        });
-                    })
-                    .catch(error => {
-                        console.error('IP fetch error!', error.message);
-                        showPopup('Error fetching IP address.', 'error');
-                    });
+                
+                fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                  .then(response => {
+                    if (response.ok) {
+                      // Immediately show "Message Sent!" after "Sending..."
+                      setTimeout(() => {
+                        showPopup('Message Sent!', 'success');
+                        // Clear the form inputs
+                        form.reset();
+                      }, 800); // Adjust timing if needed
+                    } else {
+                      showPopup('Failed to send message. Please try again.', 'error');
+                    }
+                  })
+                  .catch(error => {
+                    console.error('Error!', error.message);
+                    showPopup('Error! Please try again.', 'error');
+                  });
+              }
             });
-            
+        
             function showPopup(message, type) {
-                const popup = document.getElementById('popup');
-                const popupMessage = document.getElementById('popupMessage');
-            
-                popupMessage.textContent = message;
-            
-                // Remove previous type classes
+              const popup = document.getElementById('popup');
+              const popupMessage = document.getElementById('popupMessage');
+        
+              popupMessage.textContent = message;
+        
+              // Remove previous type classes
+              popup.classList.remove('success', 'error', 'info');
+        
+              // Add the new type class
+              popup.classList.add(type);
+        
+              // Show the popup
+              popup.classList.add('active');
+        
+              // Define duration for different messages
+              let duration;
+              if (message === 'Message Sent!') {
+                duration = 5000; // Extended duration for "Message Sent!" message (5 seconds)
+              } else {
+                duration = 3000; // Duration for "Sending..." and other messages (3 seconds)
+              }
+        
+              // Hide the popup after the defined duration
+              setTimeout(() => {
+                popup.classList.remove('active');
                 popup.classList.remove('success', 'error', 'info');
-            
-                // Add the new type class
-                popup.classList.add(type);
-            
-                // Show the popup
-                popup.classList.add('active');
-            
-                // Define duration for different messages
-                let duration;
-                if (message === 'Message Sent!') {
-                    duration = 5000; // Extended duration for "Message Sent!" message (5 seconds)
-                } else {
-                    duration = 3000; // Duration for "Sending..." and other messages (3 seconds)
-                }
-            
-                // Hide the popup after the defined duration
-                setTimeout(() => {
-                    popup.classList.remove('active');
-                    popup.classList.remove('success', 'error', 'info');
-                }, duration);
+              }, duration);
             }
-            </script>
-            
+          </script>
         
         
         
