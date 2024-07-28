@@ -225,12 +225,12 @@ body {
 
 
   .content-section {
-    margin-top: 45px;
+    margin-top: 40px;
     display: none;
   }
   .content-section.active {
     display: block;
-    margin-top: 45px;
+    margin-top: 40px;
   }
 
   @media (min-width: 1024px) {
