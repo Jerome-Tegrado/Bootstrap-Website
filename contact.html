@@ -117,50 +117,35 @@
               const form = document.forms['contactForm'];
               const email = form['email'].value;
               const message = form['message'].value;
-              const ipAddressField = document.getElementById('ipAddress');
         
-              // Fetch the client's IP address using an external service
-              fetch('https://api.ipify.org?format=json')
-                .then(response => response.json())
-                .then(data => {
-                  ipAddressField.value = data.ip;
-                  submitForm();
+              // Basic validation
+              if (!email || !message) {
+                showPopup('Please fill out all required fields.', 'error');
+                return;
+              }
+        
+              // Show the popup with "Sending..." message
+              showPopup('Sending...', 'info');
+        
+              const scriptURL = 'https://script.google.com/macros/s/AKfycbxARBrdK0Exq-6q7VRbCLTVhgHE4h87FQuzZmEA-3kh3xD8IdiTjM_h4eZa4J_b_XuE/exec'; // Replace with your script deployment URL
+        
+              fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => {
+                  if (response.ok) {
+                    // Immediately show "Message Sent!" after "Sending..."
+                    setTimeout(() => {
+                      showPopup('Message Sent!', 'success');
+                      // Clear the form inputs
+                      form.reset();
+                    }, 800); // Adjust timing if needed
+                  } else {
+                    showPopup('Failed to send message. Please try again.', 'error');
+                  }
                 })
                 .catch(error => {
-                  console.error('Error fetching IP address:', error);
-                  showPopup('Error fetching IP address. Please try again.', 'error');
+                  console.error('Error!', error.message);
+                  showPopup('Error! Please try again.', 'error');
                 });
-        
-              function submitForm() {
-                // Basic validation
-                if (!email || !message) {
-                  showPopup('Please fill out all required fields.', 'error');
-                  return;
-                }
-        
-                // Show the popup with "Sending..." message
-                showPopup('Sending...', 'info');
-        
-                const scriptURL = 'https://script.google.com/macros/s/AKfycbxARBrdK0Exq-6q7VRbCLTVhgHE4h87FQuzZmEA-3kh3xD8IdiTjM_h4eZa4J_b_XuE/exec'; // Replace with your script deployment URL
-                
-                fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-                  .then(response => {
-                    if (response.ok) {
-                      // Immediately show "Message Sent!" after "Sending..."
-                      setTimeout(() => {
-                        showPopup('Message Sent!', 'success');
-                        // Clear the form inputs
-                        form.reset();
-                      }, 800); // Adjust timing if needed
-                    } else {
-                      showPopup('Failed to send message. Please try again.', 'error');
-                    }
-                  })
-                  .catch(error => {
-                    console.error('Error!', error.message);
-                    showPopup('Error! Please try again.', 'error');
-                  });
-              }
             });
         
             function showPopup(message, type) {
